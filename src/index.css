@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wedding invitation design system - Olive champagne & burgundy palette */
+
+@layer base {
+  :root {
+    /* Main palette */
+    --olive-dark: 59 100% 18%;      /* #5D5C00 */
+    --olive-soft: 56 29% 60%;       /* #B6B27C */
+    --olive-gold: 56 36% 55%;       /* #B5B063 */
+    --burgundy: 347 56% 23%;        /* #5A1924 */
+    --burgundy-soft: 346 42% 34%;   /* #7C3341 */
+    --burgundy-dark: 346 58% 17%;   /* #44121B */
+
+    /* Neutral base */
+    --cream: 43 41% 93%;
+    --cream-dark: 42 31% 88%;
+    --ivory: 45 45% 96%;
+
+    /* App colors */
+    --background: 43 41% 93%;
+    --foreground: 346 58% 17%;
+
+    --card: 45 45% 96%;
+    --card-foreground: 346 58% 17%;
+
+    --popover: 45 45% 96%;
+    --popover-foreground: 346 58% 17%;
+
+    /* Primary burgundy */
+    --primary: 347 56% 23%;
+    --primary-foreground: 45 45% 96%;
+
+    /* Secondary olive champagne */
+    --secondary: 56 29% 60%;
+    --secondary-foreground: 346 58% 17%;
+
+    --muted: 42 31% 88%;
+    --muted-foreground: 346 42% 34%;
+
+    /* Accent olive gold */
+    --accent: 56 36% 55%;
+    --accent-foreground: 346 58% 17%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 45% 96%;
+
+    --border: 56 29% 60%;
+    --input: 56 29% 60%;
+    --ring: 347 56% 23%;
+
+    --radius: 0.75rem;
+
+    /* Wedding aliases */
+    --sage: 59 100% 18%;
+    --sage-light: 56 29% 60%;
+    --sage-dark: 346 58% 17%;
+
+    --gold: 56 36% 55%;
+    --gold-light: 56 29% 60%;
+    --gold-dark: 59 100% 18%;
+
+    --blush: 346 42% 34%;
+    --blush-light: 43 41% 93%;
+    --blush-dark: 347 56% 23%;
+
+    /* Typography */
+    --font-script: "Pinyon Script", cursive;
+    --font-serif: "Cormorant Garamond", serif;
+    --font-sans: "Montserrat", sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -5px hsl(var(--burgundy-dark) / 0.18);
+    --shadow-elegant: 0 12px 45px -12px hsl(var(--burgundy-dark) / 0.32);
+    --shadow-gold: 0 10px 30px -12px hsl(var(--olive-gold) / 0.45);
+  }
+
+  .dark {
+    --background: 346 58% 17%;
+    --foreground: 45 45% 96%;
+
+    --card: 347 56% 23%;
+    --card-foreground: 45 45% 96%;
+
+    --popover: 347 56% 23%;
+    --popover-foreground: 45 45% 96%;
+
+    --primary: 56 29% 60%;
+    --primary-foreground: 346 58% 17%;
+
+    --secondary: 346 42% 34%;
+    --secondary-foreground: 45 45% 96%;
+
+    --muted: 347 56% 23%;
+    --muted-foreground: 56 29% 60%;
+
+    --accent: 56 36% 55%;
+    --accent-foreground: 346 58% 17%;
+
+    --border: 346 42% 34%;
+    --input: 346 42% 34%;
+    --ring: 56 29% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    color: hsl(var(--primary));
+  }
+
+  p,
+  span,
+  button,
+  input,
+  textarea,
+  label {
+    font-family: var(--font-sans);
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--olive-dark)) 0%,
+      hsl(var(--olive-gold)) 45%,
+      hsl(var(--olive-soft)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-burgundy {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--burgundy-dark)) 0%,
+      hsl(var(--burgundy)) 50%,
+      hsl(var(--burgundy-soft)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: "";
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--olive-gold)),
+      transparent
+    );
+  }
+
+  .section-wedding {
+    @apply px-4 py-16 md:py-24;
+  }
+
+  .card-wedding {
+    background: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--olive-soft) / 0.35);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .button-wedding {
+    background: hsl(var(--burgundy));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--olive-gold) / 0.45);
+    transition: all 0.3s ease;
+  }
+
+  .button-wedding:hover {
+    background: hsl(var(--burgundy-dark));
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .button-wedding-outline {
+    background: transparent;
+    color: hsl(var(--burgundy));
+    border: 1px solid hsl(var(--burgundy));
+    transition: all 0.3s ease;
+  }
+
+  .button-wedding-outline:hover {
+    background: hsl(var(--burgundy));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-cream-dark {
+    background-color: hsl(var(--cream-dark));
+  }
+
+  .bg-ivory {
+    background-color: hsl(var(--ivory));
+  }
+
+  .bg-olive {
+    background-color: hsl(var(--olive-dark));
+  }
+
+  .bg-olive-soft {
+    background-color: hsl(var(--olive-soft));
+  }
+
+  .bg-olive-gold {
+    background-color: hsl(var(--olive-gold));
+  }
+
+  .bg-burgundy {
+    background-color: hsl(var(--burgundy));
+  }
+
+  .bg-burgundy-soft {
+    background-color: hsl(var(--burgundy-soft));
+  }
+
+  .bg-burgundy-dark {
+    background-color: hsl(var(--burgundy-dark));
+  }
+
+  .bg-blush {
+    background-color: hsl(var(--blush));
+  }
+
+  .text-olive {
+    color: hsl(var(--olive-dark));
+  }
+
+  .text-olive-soft {
+    color: hsl(var(--olive-soft));
+  }
+
+  .text-olive-gold {
+    color: hsl(var(--olive-gold));
+  }
+
+  .text-burgundy {
+    color: hsl(var(--burgundy));
+  }
+
+  .text-burgundy-soft {
+    color: hsl(var(--burgundy-soft));
+  }
+
+  .text-burgundy-dark {
+    color: hsl(var(--burgundy-dark));
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .border-olive {
+    border-color: hsl(var(--olive-dark));
+  }
+
+  .border-olive-soft {
+    border-color: hsl(var(--olive-soft));
+  }
+
+  .border-olive-gold {
+    border-color: hsl(var(--olive-gold));
+  }
+
+  .border-burgundy {
+    border-color: hsl(var(--burgundy));
+  }
+
+  .border-burgundy-soft {
+    border-color: hsl(var(--burgundy-soft));
+  }
+
+  .border-burgundy-dark {
+    border-color: hsl(var(--burgundy-dark));
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
